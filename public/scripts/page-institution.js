@@ -7,21 +7,21 @@ const options = {
 };
 
 // create map
-const map = L.map("mapid", options).setView([-22.9147588, -43.2032589], 15);
+const map = L.map("mapid", options).setView([-22.920845, -43.2184456], 15);
 
 // create and add tileLayer
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(map);
 
 // create icon
 const icon = L.icon({
-  iconUrl: "./public/images/map-marker.svg",
+  iconUrl: "/images/map-marker.svg",
   iconSize: [58, 68],
   iconAnchor: [29, 68],
   popupAnchor: [170, 2],
 });
 
 //create and add marker
-L.marker([-22.9147588, -43.2032589], { icon }).addTo(map);
+L.marker([-27.2109325,-49.6448719], { icon }).addTo(map);
 
 /* image gallery */
 
@@ -36,7 +36,7 @@ function selectImage(event) {
 
   //select the clicked image
   const image = button.children[0];
-  const imageContainer = document.querySelector(".orphanage-details > img");
+  const imageContainer = document.querySelector(".institution-details > img");
 
   //update the image container
   imageContainer.src = image.src;

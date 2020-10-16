@@ -6,7 +6,7 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(map);
 
 // create icon
 const icon = L.icon({
-    iconUrl: "./public/images/map-marker.svg",
+    iconUrl: "/images/map-marker.svg",
     iconSize: [58, 68],
     iconAnchor: [29, 68],
 });
@@ -39,11 +39,11 @@ function addPhotoField() {
         fieldsContainer.length - 1
     ].cloneNode(true);
 
-    //check if the field is empty
+    //check if the field is empty, if yes, do not add the image container
     const input = newFieldContainer.children[0];
 
     if (input.value == "") {
-        return;
+        return 
     }
 
     //clear the field before adding it to the image container
@@ -77,7 +77,7 @@ function toggleSelect(event) {
     // add class active to current target
     const button = event.currentTarget;
     button.classList.add("active");
-    //att input hidden
+    // update input hidden with the selected value
     const input = document.querySelector('[name="open_on_weekends"]');
     // get data value from buttons
     input.value = button.dataset.value
