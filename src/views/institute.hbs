@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lar das Meninas | Happy</title>
+  <title>{{institute.name}} | Happy</title>
 
   <!-- Leaflet's CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
@@ -23,13 +23,13 @@
   <link rel="stylesheet" href="/css/sidebar.css" />
   <link rel="stylesheet" href="/css/map.css" />
   <link rel="stylesheet" href="/css/buttons.css">
-  <link rel="stylesheet" href="/css/page-institution.css" />
+  <link rel="stylesheet" href="/css/page-institute.css" />
 
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
 </head>
 
 <body>
-  <div id="page-institution">
+  <div id="page-institute">
     <aside class="animate-right sidebar">
       <img src="/images/map-marker.svg" alt="Happy" />
 
@@ -41,46 +41,29 @@
     </aside>
 
     <main class="animate-appear with-sidebar">
-      <div class="institution-details">
-        <img src="/images/home.jpg" alt="Lar das Meninas" />
+      <div class="institute-details">
+        <img src="{{institute.firstImage}}" alt="{{institute.name}}" />
         <div class="images">
+          {{#each institute.images}}
           <button onclick="selectImage(event)" class="active" type="button">
-            <img src="https://source.unsplash.com/random?id=1" alt="Lar das Meninas" />
+            <img src="{{this}}" alt="{{institute.name}}" />
           </button>
+          {{/each}}
 
-          <button onclick="selectImage(event)" type="button">
-            <img src="https://source.unsplash.com/random?id=2" alt="Lar das Meninas" />
-          </button>
-
-          <button onclick="selectImage(event)" type="button">
-            <img src="https://source.unsplash.com/random?id=3" alt="Lar das Meninas" />
-          </button>
-
-          <button onclick="selectImage(event)" type="button">
-            <img src="https://source.unsplash.com/random?id=4" alt="Lar das Meninas" />
-          </button>
-
-          <button onclick="selectImage(event)" type="button">
-            <img src="https://source.unsplash.com/random?id=5" alt="Lar das Meninas" />
-          </button>
-
-          <button onclick="selectImage(event)" type="button">
-            <img src="https://source.unsplash.com/random?id=6" alt="Lar das Meninas" />
-          </button>
         </div>
 
-        <div class="institution-details-content">
-          <h1>Lar das Meninas</h1>
+        <div class="institute-details-content">
+          <h1>{{institute.name}}</h1>
 
-          <p>
-            Presta assistência a crianças de 06 a 15 anos que se encontre em
-            situação de risco e/ou vulnerabilidade social.
-          </p>
+          <p>{{institute.about}}</p>
 
           <div class="map-container">
             <div id="mapid"></div>
+            <span data-lat="{{institute.lat}}" data-lng="{{institute.lng}}"></span>
             <footer>
-              <a href="">Ver rotas no Google Maps</a>
+              <a target="_blank" href="https://maps.google.com/mobile?q={{institute.lat}},{{institute.lng}}&z=15">
+              Ver rotas no Google Maps
+              </a>
             </footer>
           </div>
 
@@ -89,30 +72,38 @@
           <h2>Instruções para visita</h2>
 
           <p>
-            Venha como se sentir a vontade e traga muito amor e paciência para
-            dar.
+            {{institute.instructions}}
           </p>
 
           <div class="open-details">
             <div class="hour">
               <img src="/images/clock.svg" alt="Horários" />
-              Horário de visitas:<br> 8h até 18h
+              Horário de visitas:<br>{{institute.opening_hours}}
             </div>
-            <div class="open-on-weekends">
+
+            {{#if institute.open_on_weekends}}
+            <div class="open-on-weekends open">
               <img src="/images/info.svg" alt="Informações" />
-              Atendemos fim de semana
+              Atendemos<br>fim de semana
             </div>
+            {{else}}
+            <div class="open-on-weekends closed">
+              <img src="/images/info-red.svg" alt="Informações" />
+              Não atendemos<br>fim de semana
+            </div>
+            {{/if}}
           </div>
 
-          <button class="primary-button" type="button">
+          <a href="https://api.whatsapp.com/send?l=pt_BR&phone={{institute.whatsapp}}&text=Olá, quero marcar uma visita." target="_blank"
+            class="primary-button" type="button">
             <img src="/images/whatsapp.svg" alt="Chamar no whatsapp" />
             Entrar em contato
-          </button>
+          </a>
         </div>
       </div>
     </main>
   </div>
-  <script src="/scripts/page-institution.js"></script>
+  <script src="/scripts/page-institute.js"></script>
 </body>
 
 </html>

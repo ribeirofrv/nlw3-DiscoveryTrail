@@ -20,22 +20,22 @@ function addMarker({ id, name, lat, lng }) {
     minWidth: 240,
     minHeight: 240,
   }).setContent(
-    `${name} <a href="/institution?id=${id}"><img src="/images/arrow-white.svg"> </a>`
+    `${name} <a href="/institute?id=${id}"><img src="/images/arrow-white.svg"> </a>`
   );
 
   //create and add marker
   L.marker([lat, lng], { icon }).addTo(map).bindPopup(popup);
 }
 
-const institutionsSpan = document.querySelectorAll(".institutions span");
+const institutionsSpan = document.querySelectorAll(".institutes span");
 
-institutionsSpan.forEach(span => {
-  const institution = {
+institutionsSpan.forEach((span) => {
+  const institute = {
     id: span.dataset.id,
     name: span.dataset.name,
     lat: span.dataset.lat,
     lng: span.dataset.lng,
   };
 
-  addMarker(institution);
+  addMarker(institute);
 });

@@ -1,0 +1,36 @@
+.page-save-confirm {
+  width: 80%;
+  margin: 6.4rem auto;
+  padding: 1.6rem 2.0rem 1.6rem 2.4rem;
+  
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 8rem;
+  align-items: center;
+}
+
+body {
+  background: #37c77f;
+
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+main h1 {
+  font: 800 8rem "Nunito", sans-serif;
+  text-align: center;
+  line-height: 8rem;
+
+  /* margin-top: 6.4rem; */
+}
+
+main p {
+  font: 600 2.4rem/3.4 "Nunito", sans-serif;
+  text-align: center;
+  line-height: 3.4rem;
+
+  margin-top: 2.6rem;
+}

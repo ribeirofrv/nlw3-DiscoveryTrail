@@ -20,13 +20,13 @@
 
   <link rel="stylesheet" href="/css/main.css" />
   <link rel="stylesheet" href="/css/animations.css" />
-  <link rel="stylesheet" href="/css/page-institutions.css" />
+  <link rel="stylesheet" href="/css/page-institutes.css" />
 
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
 </head>
 
 <body>
-  <div id="page-institutions">
+  <div id="page-institutes">
     <aside class="animate-right">
       <header>
         <img src="/images/map-marker.svg" alt="Happy">
@@ -44,24 +44,20 @@
 
     <div id="mapid" class="animate-appear"></div>
 
-    <div class="institutions">
-      {{#each institutions}}
-        <span hidden
-          data-id="{{this.id}}"
-          data-name="{{this.name}}"
-          data-lat="{{this.lat}}"
-          data-lng="{{this.lng}}"
-        ></span>
+    <div class="institutes">
+      {{#each institutes}}
+      <span hidden data-id="{{this.id}}" data-name="{{this.name}}" data-lat="{{this.lat}}"
+        data-lng="{{this.lng}}"></span>
       {{/each}}
     </div>
 
-    <a href="/create-institution" class="create-institution" title="Cadastre um orfanato">
-      <img src="/images/plus.svg" alt="Criar orfanato">
+    <a href="/create-institute" class="create-institute" title="Cadastre um orfanato">
+      <img src="/images/plus.svg" alt="Adicionar Instituição">
     </a>
 
   </div>
 
-  <script src="/scripts/page-institutions.js"></script>
+  <script src="/scripts/page-institutes.js"></script>
 </body>
 
 </html>

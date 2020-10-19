@@ -24,13 +24,13 @@
   <link rel="stylesheet" href="/css/map.css" />
   <link rel="stylesheet" href="/css/form.css" />
   <link rel="stylesheet" href="/css/buttons.css" />
-  <link rel="stylesheet" href="/css/page-create-institution.css" />
+  <link rel="stylesheet" href="/css/page-create-institute.css" />
 
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
 </head>
 
 <body>
-  <div id="page-create-institution">
+  <div id="page-create-institute">
     <aside class="animate-right sidebar">
       <img src="/images/map-marker.svg" alt="Happy" />
 
@@ -42,7 +42,7 @@
     </aside>
 
     <main class="animate-appear with-sidebar">
-      <form action="">
+      <form action="save-institute" method="POST" onsubmit="validate(event)">
         <fieldset>
           <legend>Dados</legend>
           <!-- Map container-->
@@ -76,11 +76,10 @@
           <div class="input-block images">
             <label for="images">Foto</label>
 
-            <div class="images-upload" id="images">
+            <div class="images-upload" id="images" >
               <div class="new-upload">
-                <input name="images" placeholder="Cole o link da foto aqui" required />
-                <span onclick="deleteField(event)"><img src="/images/remove-file.svg"
-                    alt="Remover foto" /></span>
+                <input name="images" placeholder="Cole o link da foto aqui" required type="url"/>
+                <span onclick="deleteField(event)"><img src="/images/remove-file.svg" alt="Remover foto" /></span>
               </div>
             </div>
 
@@ -117,12 +116,12 @@
             </button>
           </div>
 
-          <button type="submit" class="primary-button">Confirmar</button>
+          <button href="/confirm-save" type="submit" class="primary-button">Confirmar</button>
         </fieldset>
       </form>
     </main>
   </div>
-  <script src="/scripts/page-create-institution.js"></script>
+  <script src="/scripts/page-create-institute.js"></script>
 </body>
 
 </html>

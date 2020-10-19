@@ -43,7 +43,7 @@ function addPhotoField() {
     const input = newFieldContainer.children[0];
 
     if (input.value == "") {
-        return 
+        return
     }
 
     //clear the field before adding it to the image container
@@ -82,3 +82,13 @@ function toggleSelect(event) {
     // get data value from buttons
     input.value = button.dataset.value
 }
+
+// function validate(event) {
+//     // VALIDAR SE LAT E LNG ESTÃO PREENCHIDOS
+//     const needsLatAndLng = true;
+//     if (needsLatAndLng) {
+//         event.preventDefault()
+//         alert('Por favor, selecione um ponto no mapa!')
+//     }
+
+// }
